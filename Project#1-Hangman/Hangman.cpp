@@ -11,29 +11,35 @@
 using namespace std;
 string player1,player2;
 char word[5],line[5]={'_','_','_','_','_'};
-int z,wrong=0,correct=0,b,numChar;
+int z,wrong=0,correct=0,b,c,numChar;
 
 
 
 void checkGuess(char a)                        /* Checking of the guessed letter */
 {   
    for(z=0;z<=numChar-1;z++)
-   {
+    {
      if(a==word[z])
       { 
         line[z]=word[z];
+        c++;
         correct++;
       }
      else 
       b++;      
-   }
+    }
+ 
+   if(c>0)
+    {cout<<"Correct";}
 
- if(b==numChar)
- {
-   cout<<"Incorrect";
-   wrong++;
- }
+   else if(b==numChar)
+    {
+      cout<<"Incorrect";
+      wrong++;
+     }
+
  b=0;
+ c=0;
 } 
 
 void draw()                                    
@@ -124,7 +130,7 @@ draw();
 
 cout<<endl;
 
-while(wrong!=5 && correct!=5)
+while(wrong!=5 && correct!=numChar)
  {
    cout<<endl<<"Enter your guess : ";
    cin>>guess;
@@ -132,8 +138,8 @@ while(wrong!=5 && correct!=5)
    draw();
 }
 if(wrong==5)
-{ cout<<endl<<"YOU LOSE TRY AGAIN ";}
-else if (correct==5)
-{  cout<<endl<<"CONGRATS YOU WIN";   }
+{ cout<<endl<<"YOU LOSE TRY AGAIN "<<endl; }
+else if (correct==numChar)
+{  cout<<endl<<"CONGRATS YOU WIN"<<endl;   }
 
 }
