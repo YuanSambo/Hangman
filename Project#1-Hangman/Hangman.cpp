@@ -11,7 +11,7 @@
 using namespace std;
 string player1,player2;
 char word[5],line[5]={'_','_','_','_','_'};
-int z,wrong=0,correct=0,b,c,numChar;
+int z,wrong=0,correct=0,b,c,d,numChar;
 
 
 
@@ -19,27 +19,34 @@ void checkGuess(char a)                        /* Checking of the guessed letter
 {   
    for(z=0;z<=numChar-1;z++)
     {
-     if(a==word[z])
+      if(a==line[z])
+      {
+       b++;
+       break;
+      }
+     else if(a==word[z])
       { 
         line[z]=word[z];
         c++;
         correct++;
       }
      else 
-      b++;      
+      d++;      
     }
- 
-   if(c>0)
+   
+   if(b>0)
+    {cout<<"Already Entered";}
+   else if(c>0)
     {cout<<"Correct";}
-
-   else if(b==numChar)
+   else if(d==numChar)
     {
       cout<<"Incorrect";
-      wrong++;
-     }
+     wrong++;
+    }
 
  b=0;
  c=0;
+ d=0;
 } 
 
 void draw()                                    
