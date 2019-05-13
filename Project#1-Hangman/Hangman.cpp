@@ -1,7 +1,7 @@
 
 /* ################################# HANG MAN ################################## */
-/* DATE CREATED : 05/10/19 #####################################################*/
-/*############################################################################## */
+/* DATE CREATED : 05/10/19 ##################################################### */
+/* ############################################################################# */
 
 
 
@@ -17,7 +17,7 @@ int z,wrong=0,correct=0,b,c,d,numChar;
 
 void checkGuess(char a)                        /* Checking of the guessed letter */
 {   
-   for(z=0;z<=numChar-1;z++)
+   for(z=0;z<=numChar-1;z++)                   /* numChar-1 to avoid exceeding of array for array always starts with [0]. */
     {
       if(a==line[z])
       {
@@ -102,18 +102,15 @@ cout << "|| / \\"<< endl;
 cout << "||" << endl;
 }
 
-
-
-
 cout<<endl<<endl;
 
 for(z=0;z<=numChar-1;z++)
- {
- 
+   
+   {
+     cout<<line[z]<<"  ";
+   }
 
- cout<<line[z]<<"  ";
- }
- cout<<endl;
+  cout<<endl;
  }
 
 
@@ -123,8 +120,8 @@ int main()
 {
  char guess;
 
-cout<<endl<<"<===========WELCOME TO HANGMAN GAME==============>"<<endl;
-cout<<endl<<"( Maximum of 5 letters)"<<endl<<"( Common noun only)"<<endl;
+cout<<endl<<"_________WELCOME TO HANGMAN GAME________"<<endl;
+cout<<endl<<"• Maximum of 5 letters)"<<endl<<"• Common noun only"<<endl;
 cout<<endl<<"Enter your name PLAYER 1 : ";
 cin>>player1;
 cout<<endl<<"Enter your name PLAYER 2 : ";
